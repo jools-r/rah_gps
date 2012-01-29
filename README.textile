@@ -24,6 +24,7 @@ Default: @escape="1"@ Example: @"0"@
 
 p. *type*
 Where to get the values, from POST or GET requests. Available values are @gps@ and @ps@. If set to @ps@ values are retrieved from POST. If set to @gps@ values are retrieved from GET, and from POST if they are not first found in GET.
+Default: @type="gps"@ Example: @"ps"@
 
 p. *new*
 If defined, extracted variables are renamed to the given value. Only works when extracting sinle variable. If @new@ is used when extracting multiple values, only one variable will be created and populated with the last value.
