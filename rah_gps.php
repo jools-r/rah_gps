@@ -53,12 +53,12 @@
 	
 			$value = $type($n);
 			
-			if(!is_scalar($value) || $value === NULL)
+			if(!is_scalar($value) || is_null($value))
 				$value = '';
 	
-			$n = htmlspecialchars($new !== '' ? $new : $n);
+			$n = htmlspecialchars($new ? $new : $n);
 			
-			if($name === NULL && isset($variable[$n]) && !isset($extracted[$n]))
+			if(!$n || ($name === NULL && isset($variable[$n]) && !isset($extracted[$n])))
 				continue;
 			
 			if($escape)
