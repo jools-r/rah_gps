@@ -1,0 +1,41 @@
+h1. rah_gps
+
+p. A plugin for "Textpattern CMS":http://www.textpattern.com. Extracts HTTP POST/GET variables as Textpattern's "variables":http://textpattern.net/wiki/index.php?title=variable tags.
+
+p. Rah_gps project is based on Adi Gilbert's great work on "adi_gps":http://www.greatoceanmedia.com.au/. The project orginates from a security patch (for adi_gps) that was contributed to Adi in the late 2011. As of January 29, 2011 this patch hasn't seen any light, so I, "Jukka Svahn":http//twitter.com/gocom, am going to distribute under my own name.
+
+p. Rah_gps isn't 1on1 identical with adi_gps. Apart from security fixes, it also has, in a sense, less features.
+
+h2. Requirements
+
+p. Rah_gps at minimum requires Textpattern version 4.0.7 or newer. Textpattern 4.4.1 or newer is highly recommended.
+
+h2. Attributes
+
+p. The tag, @<txp:rah_gps />@, is a single, self-closing tag. It's used to export POST and GET values as variables. The tag itself doesn't return anything. Attributes for it follow.
+
+p. *name*
+Comma-separated list of HTTP POST/GET parameters to export. If left empty, all requested paramaters are exported as variables, expect for those that already exists as variables. Already existing variables are not overwritten when @name@ is specified.
+Default: @name=""@ Example: @"q, page, form_id, location"@
+
+p. *escape*
+If set to @1@, extracted POST/GET values are escaped from Textpattern and HTML markup, and special characters are converted to HTML entities. By default this option is on (@1@), and usually it should not be turned off. Never set @escape@ to @0@ (off) if you plan to return the values on your page template.
+Default: @escape="1"@ Example: @"0"@
+
+p. *type*
+Where to get the values, from POST or GET requests. Available values are @gps@ and @ps@. If set to @ps@ values are retrieved from POST. If set to @gps@ values are retrieved from GET, and from POST if they are not first found in GET.
+
+h2. Examples
+
+h3. Example: #1: Extracting all GET/POST values
+
+bc. <txp:rah_gps />
+
+p. If requested page's URL is @?location=foobar&pid=barfoo@, above would create and populate two variables,
+@<txp:variable name="location" />@ and @<txp:variable name="pid" />@.
+
+h3. Example #2: Extract only specific values
+
+bc. <txp:rah_gps name="foo, bar" />
+
+p. Above would export GET/POST values values @foo@ and @bar@, and create two new "variables":http://textpattern.net/wiki/index.php?title=variable named @foo@ and @bar@.
