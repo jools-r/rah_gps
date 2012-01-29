@@ -2,9 +2,9 @@ h1. rah_gps
 
 p. A plugin for "Textpattern CMS":http://www.textpattern.com. Extracts HTTP POST/GET variables as Textpattern's "variables":http://textpattern.net/wiki/index.php?title=variable tags.
 
-p. Rah_gps project is based on Adi Gilbert's great work on "adi_gps":http://www.greatoceanmedia.com.au/. The project orginates from a security patch (for adi_gps) that was contributed to Adi in the late 2011. As of January 29, 2011 this patch hasn't seen any light, so I, "Jukka Svahn":http//twitter.com/gocom, am going to distribute under my own name.
+p. Rah_gps project is based on Adi Gilbert's great work on "adi_gps":http://www.greatoceanmedia.com.au/. The project orginates from a security patch (for adi_gps) that was sent to Adi in the late 2011. As of January 29, 2011 this patch hasn't been released, and therefor "I'm":http://twitter.com/gocom, giving my own taken into POST and GET extracting and trying to do it as securely as possible. In a form of new rah plugin. I personally hope that Adi can get some free time and release updated version of adi_gps.
 
-p. Rah_gps isn't 1on1 identical with adi_gps. Apart from security fixes, it also has, in a sense, less features.
+p. Feature-wise rah_gps isn't 1on1 identical with adi_gps. Apart from security fixes, it also has, in a sense, less features. For example, it has no global extracting, it can not overwrite variables anonymously and it never returns anything.
 
 h2. Requirements
 
