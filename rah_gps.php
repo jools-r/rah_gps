@@ -20,7 +20,7 @@
  * @param bool $atts[escape] Escape POST/GET value.
  * @param string $atts[type] Sets where to get values (strictly POST or both). Either "gps" or "ps".
  * @return nothing
- * @see doArray(), gps(), ps(), trace_add(), $variable
+ * @see do_list(), gps(), ps(), trace_add(), $variable
  *
  * <code>
  *		<txp:rah_gps name="q, page" />
@@ -46,7 +46,7 @@
 		}
 	
 		else {
-			$vars = doArray(explode(',', $name), 'trim');
+			$vars = do_list($name);
 		}
 	
 		foreach($vars as $n) {
