@@ -2,7 +2,7 @@ h1. rah_gps
 
 p. A plugin for "Textpattern CMS":http://www.textpattern.com. Extracts HTTP POST/GET variables as Textpattern's "variables":http://textpattern.net/wiki/index.php?title=variable tags.
 
-p. Rah_gps project is based on Adi Gilbert's great work on "adi_gps":http://www.greatoceanmedia.com.au/. The project orginates from a security patch (for adi_gps) that was sent to Adi in the late 2011. As of January 29, 2011 this patch hasn't been released, and therefor "I'm":http://twitter.com/gocom, giving my own taken into POST and GET extracting and trying to do it as securely as possible. In a form of new rah plugin. I personally hope that Adi can get some free time and release updated version of adi_gps.
+p. Rah_gps project is based on "Adi Gilbert":http://www.greatoceanmedia.com.au/'s great work on "adi_gps":http://forum.textpattern.com/viewtopic.php?id=28932. The project orginates from a security patch (for adi_gps) that was sent to Adi in the late 2011. As of January 29, 2011 this patch hasn't been released, and therefor "I'm":http://twitter.com/gocom, giving my own taken into POST and GET extracting and trying to do it as securely as possible. In a form of new rah plugin. I personally hope that Adi can get some free time and release updated version of adi_gps.
 
 p. Feature-wise rah_gps isn't 1on1 identical with adi_gps. Apart from security fixes, it also has, in a sense, less features. For example, it has no global extracting, it can not overwrite variables anonymously and the included tag itself never returns anything.
 
@@ -15,8 +15,8 @@ h2. Attributes
 p. The tag, @<txp:rah_gps />@, is a single, self-closing tag. It's used to export POST and GET values as variables. The tag itself doesn't return anything. Attributes for it follow.
 
 p. *name*
-Comma-separated list of HTTP POST/GET parameters to export. If left empty, all requested paramaters are exported as variables, expect for those that already exists as variables. Already existing variables are not overwritten when @name@ is specified.
-Default: @name=""@ Example: @"q, page, form_id, location"@
+Comma-separated list of HTTP POST/GET parameters to export. If not defined (left empty), all requested paramaters are exported as variables, expect for those that already exists as variables. Already existing variables are not overwritten when @name@ is not specified.
+Default: @undefined@ Example: @name="q, page, form_id, location"@
 
 p. *escape*
 If set to @1@, extracted POST/GET values are escaped from Textpattern and HTML markup, and special characters are converted to HTML entities. By default this option is on (@1@), and usually it should not be turned off. Never set @escape@ to @0@ (off) if you plan to return the values on your page template.
@@ -24,6 +24,10 @@ Default: @escape="1"@ Example: @"0"@
 
 p. *type*
 Where to get the values, from POST or GET requests. Available values are @gps@ and @ps@. If set to @ps@ values are retrieved from POST. If set to @gps@ values are retrieved from GET, and from POST if they are not first found in GET.
+
+p. *new*
+If defined, extracted variables are renamed to the given value. Only works when extracting sinle variable. If @new@ is used when extracting multiple values, only one variable will be created and populated with the last value.
+Default: @new=""@ Example: @"private_id"@
 
 h2. Examples
 
