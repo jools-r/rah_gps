@@ -21,9 +21,8 @@
  * @param string $atts[type] Sets where to get values (strictly POST or both). Either "gps" or "ps".
  * @return nothing
  * @see do_list(), gps(), ps(), trace_add(), $variable
- *
  * <code>
- *		<txp:rah_gps name="q, page" />
+ *		<txp:rah_gps name="color, page_id" />
  * </code>
  */
 
