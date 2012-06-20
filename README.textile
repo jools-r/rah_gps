@@ -8,7 +8,9 @@ p. Feature-wise rah_gps isn't 1on1 identical with adi_gps. Apart from security f
 
 h2. Requirements
 
-p. Rah_gps at minimum requires Textpattern version 4.0.7 or newer. Textpattern 4.4.1 or newer is highly recommended.
+p. Rah_gps at minimum requires:
+
+* Textpattern v4.5.0 or newer.
 
 h2. Attributes
 

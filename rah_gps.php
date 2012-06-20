@@ -55,13 +55,13 @@
 			if(!is_scalar($value) || is_null($value))
 				$value = '';
 	
-			$n = htmlspecialchars($new ? $new : $n);
+			$n = txpspecialchars($new ? $new : $n);
 			
 			if(!$n || ($name === NULL && isset($variable[$n]) && !isset($extracted[$n])))
 				continue;
 			
 			if($escape)
-				$value = htmlspecialchars($value);
+				$value = txpspecialchars($value);
 
 			$extracted[$n] = true;
 			$variable[$n] = $value;
