@@ -1,0 +1,55 @@
+# Name: rah_gps v0.2
+# Extract HTTP POST/GET values as Textpattern variables
+# Author: Jukka Svahn
+# URL: http://rahforum.biz
+# Recommended load order: 5
+# .....................................................................
+# This is a plugin for Textpattern - http://textpattern.com/
+# To install: textpattern > admin > plugins
+# Paste the following text into the "Install plugin" box:
+# .....................................................................
+
+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
+58uH6aPlKus9+/xfRlaSTFUUAAA=
