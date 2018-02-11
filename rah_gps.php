@@ -8,7 +8,7 @@
  * @date 2012-
  * @license GNU GPLv2
  * @link https://github.com/gocom/rah_gps
- * 
+ *
  * Requires Textpattern v4.0.7 or newer.
  */
 
@@ -26,46 +26,50 @@
  * </code>
  */
 
+if (class_exists('\Textpattern\Tag\Registry')) {
+	Txp::get('\Textpattern\Tag\Registry')->register('rah_gps');
+}
+
 	function rah_gps($atts) {
-		
+
 		global $variable;
 		static $extracted = array();
-	
+
 		extract(lAtts(array(
 			'name' => NULL,
 			'new' => '',
 			'escape' => 1,
 			'type' => 'gps'
 		), $atts));
-	
+
 		$type = $type != 'gps' ? 'ps' : 'gps';
-	
+
 		if($name === NULL) {
 			$vars = array_keys(array_merge((array) $_GET, (array) $_POST));
 		}
-	
+
 		else {
 			$vars = do_list($name);
 		}
-	
+
 		foreach($vars as $n) {
-	
+
 			$value = $type($n);
-			
+
 			if(!is_scalar($value) || is_null($value))
 				$value = '';
-	
+
 			$n = txpspecialchars($new ? $new : $n);
-			
+
 			if(!$n || ($name === NULL && isset($variable[$n]) && !isset($extracted[$n])))
 				continue;
-			
+
 			if($escape)
 				$value = txpspecialchars($value);
 
 			$extracted[$n] = true;
 			$variable[$n] = $value;
-			
+
 			trace_add('['.$n.': '.$value.']');
 		}
 	}
